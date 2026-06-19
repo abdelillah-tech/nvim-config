@@ -11,14 +11,8 @@ return {
         'nvim-treesitter/nvim-treesitter',
         lazy = false,  -- This plugin does not support lazy-loading
         build = ':TSUpdate',
-        config = function()
-            -- In the new nvim-treesitter rewrite, highlighting is automatic.
-            -- Install parsers explicitly; this is a no-op if already installed.
-            require('nvim-treesitter').install({
-                "html", "css", "javascript", "typescript",
-                "java", "c", "lua", "vim", "vimdoc", "query",
-            })
-        end,
+        -- No setup needed: highlighting is automatic in the new nvim-treesitter rewrite.
+        -- Install parsers with :TSInstall <language> or :TSInstall all
     },
 
     -- Note: :InspectTree is now built into nvim-treesitter (replaces the old playground plugin)
