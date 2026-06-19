@@ -46,6 +46,7 @@ return {
                 dashboard.button("<C-p>",     "  Git Files",     ":Telescope git_files<CR>"),
                 dashboard.button("<Space> s", "  Live Grep",     ":Telescope live_grep<CR>"),
                 dashboard.button("-",         "  File Explorer", ":Oil<CR>"),
+                dashboard.button("<Space> e", "  File Tree",     ":Neotree toggle<CR>"),
                 dashboard.button("<Space> gs","  Git Status",    ":Git<CR>"),
                 dashboard.button("<Space> gg","  Neogit Panel",  ":Neogit<CR>"),
                 dashboard.button("<Space> u", "  Undo Tree",     ":UndotreeToggle<CR>"),
