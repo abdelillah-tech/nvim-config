@@ -9,11 +9,20 @@
 return {
     {
         'nvim-treesitter/nvim-treesitter',
-        lazy = false,  -- This plugin does not support lazy-loading
+        branch = 'master',  -- master branch supports Neovim 0.11; main requires 0.12+ nightly
         build = ':TSUpdate',
-        -- No setup needed: highlighting is automatic in the new nvim-treesitter rewrite.
-        -- Install parsers with :TSInstall <language> or :TSInstall all
+        config = function()
+            require('nvim-treesitter.configs').setup({
+                ensure_installed = {
+                    "html", "css", "javascript", "typescript",
+                    "java", "c", "lua", "vim", "vimdoc", "query",
+                },
+                sync_install = false,
+                auto_install = true,
+                highlight = { enable = true },
+            })
+        end,
     },
 
-    -- Note: :InspectTree is now built into nvim-treesitter (replaces the old playground plugin)
+    -- Note: :InspectTree is built into Neovim 0.11+
 }
