@@ -9,25 +9,17 @@
 return {
     {
         'nvim-treesitter/nvim-treesitter',
-        build = ':TSUpdate',  -- Updates all parsers when the plugin updates
+        lazy = false,  -- This plugin does not support lazy-loading
+        build = ':TSUpdate',
         config = function()
-            require('nvim-treesitter.configs').setup({
-                -- Parsers to install automatically on first launch
-                ensure_installed = {
-                    "html", "css", "javascript", "typescript",
-                    "java", "c", "lua", "vim", "vimdoc", "query",
-                },
-                sync_install = false,  -- Install parsers in the background
-                auto_install = true,   -- Auto-install parser when you open an unsupported file
-                highlight = {
-                    enable = true,
-                    additional_vim_regex_highlighting = false,
-                },
+            -- In the new nvim-treesitter rewrite, highlighting is automatic.
+            -- Install parsers explicitly; this is a no-op if already installed.
+            require('nvim-treesitter').install({
+                "html", "css", "javascript", "typescript",
+                "java", "c", "lua", "vim", "vimdoc", "query",
             })
         end,
     },
 
-    -- Treesitter playground: inspect the syntax tree of the current file.
-    -- Use :TSPlaygroundToggle to open it. Useful for debugging highlight issues.
-    'nvim-treesitter/playground',
+    -- Note: :InspectTree is now built into nvim-treesitter (replaces the old playground plugin)
 }
