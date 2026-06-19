@@ -1,0 +1,6 @@
+# Lazy.nvim lock file — commit this if you want reproducible installs,
+# or ignore it if you always want the latest versions.
+# lazy-lock.json
+
+# Local plugin cache (auto-generated, not needed in version control)
+plugin/
